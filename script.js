@@ -251,18 +251,100 @@ document.querySelectorAll('.social-links a').forEach(link => {
 let cart = [];
 let cartTotal = 0;
 
-// Product data
-const products = {
-    1: { name: 'Headset Pro X99', price: 1250000, image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80' },
-    2: { name: 'Keyboard RGB Ultra', price: 2500000, image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80' },
-    3: { name: 'Mouse Elite 5000', price: 850000, image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80' },
-    4: { name: 'Gaming Controller Pro', price: 1800000, image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80' },
-    5: { name: 'Gaming Monitor 27"', price: 4500000, image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80' },
-    6: { name: 'Gaming Chair Premium', price: 3200000, image: 'https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=400&q=80' }
-};
+// Product data with extended properties
+const products = [
+    { 
+        id: 1, 
+        name: 'Headset Pro X99', 
+        brand: 'GamingTech', 
+        type: 'Headset', 
+        price: 1250000, 
+        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
+        description: 'Headset gaming premium dengan suara surround 7.1, mikrofon noise-cancelling, dan kenyamanan maksimal untuk gaming marathon.'
+    },
+    { 
+        id: 2, 
+        name: 'Keyboard RGB Ultra', 
+        brand: 'MechanicalPro', 
+        type: 'Keyboard', 
+        price: 2500000, 
+        image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+        description: 'Keyboard mekanikal dengan switch Cherry MX Blue, lampu RGB yang dapat dikustomisasi, dan desain ergonomis untuk gaming.'
+    },
+    { 
+        id: 3, 
+        name: 'Mouse Elite 5000', 
+        brand: 'GamingTech', 
+        type: 'Mouse', 
+        price: 850000, 
+        image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80',
+        description: 'Mouse gaming dengan sensor 25,600 DPI, 8 tombol yang dapat diprogram, dan desain ergonomis untuk tangan kanan.'
+    },
+    { 
+        id: 4, 
+        name: 'Gaming Controller Pro', 
+        brand: 'ConsoleMaster', 
+        type: 'Controller', 
+        price: 1800000, 
+        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80',
+        description: 'Controller wireless dengan dual vibration, trigger buttons yang responsif, dan kompatibel dengan PC, PS4, dan PS5.'
+    },
+    { 
+        id: 5, 
+        name: 'Gaming Monitor 27"', 
+        brand: 'DisplayPro', 
+        type: 'Monitor', 
+        price: 4500000, 
+        image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80',
+        description: 'Monitor gaming 27" dengan refresh rate 165Hz, response time 1ms, dan resolusi 2560x1440 untuk pengalaman gaming yang smooth.'
+    },
+    { 
+        id: 6, 
+        name: 'Gaming Chair Premium', 
+        brand: 'ComfortMax', 
+        type: 'Chair', 
+        price: 3200000, 
+        image: 'https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=400&q=80',
+        description: 'Kursi gaming ergonomis dengan lumbar support, headrest yang dapat disesuaikan, dan material premium untuk kenyamanan maksimal.'
+    },
+    { 
+        id: 7, 
+        name: 'Gaming Mousepad XL', 
+        brand: 'GamingTech', 
+        type: 'Mousepad', 
+        price: 350000, 
+        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
+        description: 'Mousepad gaming extra large dengan permukaan yang halus dan anti-slip untuk kontrol yang presisi.'
+    },
+    { 
+        id: 8, 
+        name: 'Gaming Microphone Pro', 
+        brand: 'AudioMaster', 
+        type: 'Microphone', 
+        price: 1200000, 
+        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
+        description: 'Mikrofon gaming dengan noise-cancelling dan suara yang jernih untuk streaming dan komunikasi gaming.'
+    }
+];
 
-// Add to cart functionality
+// Convert to object for cart functionality
+const productsObj = {};
+products.forEach(product => {
+    productsObj[product.id] = {
+        name: product.name,
+        price: product.price,
+        image: product.image
+    };
+});
+
+// Search and Filter Functionality
+let filteredProducts = [...products];
+
+// Initialize search and filter
 document.addEventListener('DOMContentLoaded', () => {
+    initializeSearchAndFilter();
+    renderProducts(products);
+    
     // Add to cart buttons
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         button.addEventListener('click', function() {
@@ -286,8 +368,166 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function initializeSearchAndFilter() {
+    // Populate brand and type dropdowns
+    const brands = [...new Set(products.map(p => p.brand))];
+    const types = [...new Set(products.map(p => p.type))];
+    
+    const brandSelect = document.getElementById('searchBrand');
+    const typeSelect = document.getElementById('searchType');
+    
+    brands.forEach(brand => {
+        const option = document.createElement('option');
+        option.value = brand;
+        option.textContent = brand;
+        brandSelect.appendChild(option);
+    });
+    
+    types.forEach(type => {
+        const option = document.createElement('option');
+        option.value = type;
+        option.textContent = type;
+        typeSelect.appendChild(option);
+    });
+    
+    // Add event listeners for live filtering
+    document.getElementById('searchName').addEventListener('input', filterProducts);
+    document.getElementById('searchBrand').addEventListener('change', filterProducts);
+    document.getElementById('searchType').addEventListener('change', filterProducts);
+    document.getElementById('minPrice').addEventListener('input', filterProducts);
+    document.getElementById('maxPrice').addEventListener('input', filterProducts);
+    
+    // Clear filters button
+    document.getElementById('clearFilters').addEventListener('click', clearFilters);
+}
+
+function filterProducts() {
+    const searchName = document.getElementById('searchName').value.toLowerCase();
+    const searchBrand = document.getElementById('searchBrand').value;
+    const searchType = document.getElementById('searchType').value;
+    const minPrice = document.getElementById('minPrice').value;
+    const maxPrice = document.getElementById('maxPrice').value;
+    
+    // Validate price range
+    validatePriceRange(minPrice, maxPrice);
+    
+    filteredProducts = products.filter(product => {
+        // Name filter
+        const nameMatch = product.name.toLowerCase().includes(searchName);
+        
+        // Brand filter
+        const brandMatch = !searchBrand || product.brand === searchBrand;
+        
+        // Type filter
+        const typeMatch = !searchType || product.type === searchType;
+        
+        // Price filter
+        let priceMatch = true;
+        if (minPrice && product.price < parseInt(minPrice)) {
+            priceMatch = false;
+        }
+        if (maxPrice && product.price > parseInt(maxPrice)) {
+            priceMatch = false;
+        }
+        
+        return nameMatch && brandMatch && typeMatch && priceMatch;
+    });
+    
+    renderProducts(filteredProducts);
+}
+
+function validatePriceRange(minPrice, maxPrice) {
+    const warning = document.querySelector('.price-warning') || createPriceWarning();
+    
+    if (minPrice && maxPrice && parseInt(minPrice) > parseInt(maxPrice)) {
+        warning.textContent = 'Peringatan: Harga minimal tidak boleh lebih besar dari harga maksimal!';
+        warning.classList.add('show');
+    } else {
+        warning.classList.remove('show');
+    }
+}
+
+function createPriceWarning() {
+    const warning = document.createElement('div');
+    warning.className = 'price-warning';
+    document.querySelector('.search-filter-section').appendChild(warning);
+    return warning;
+}
+
+function clearFilters() {
+    document.getElementById('searchName').value = '';
+    document.getElementById('searchBrand').value = '';
+    document.getElementById('searchType').value = '';
+    document.getElementById('minPrice').value = '';
+    document.getElementById('maxPrice').value = '';
+    
+    // Hide price warning
+    const warning = document.querySelector('.price-warning');
+    if (warning) {
+        warning.classList.remove('show');
+    }
+    
+    filteredProducts = [...products];
+    renderProducts(filteredProducts);
+}
+
+function renderProducts(productsToRender) {
+    const productsGrid = document.getElementById('productsGrid');
+    const resultsCount = document.getElementById('resultsCount');
+    
+    // Update results count
+    resultsCount.textContent = `Menampilkan ${productsToRender.length} dari ${products.length} produk`;
+    
+    if (productsToRender.length === 0) {
+        productsGrid.innerHTML = `
+            <div class="no-results">
+                <i class="fas fa-search"></i>
+                <h3>Produk tidak ditemukan</h3>
+                <p>Coba ubah filter pencarian Anda</p>
+            </div>
+        `;
+        return;
+    }
+    
+    productsGrid.innerHTML = productsToRender.map(product => `
+        <div class="product-card" data-id="${product.id}">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}">
+            </div>
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p class="product-description">${product.description}</p>
+                <div class="product-price">
+                    <span class="price">Rp ${product.price.toLocaleString()}</span>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary buy-btn" data-id="${product.id}">Beli Sekarang</button>
+                    <button class="btn btn-secondary add-to-cart-btn" data-id="${product.id}">
+                        <i class="fas fa-shopping-cart"></i> Keranjang
+                    </button>
+                </div>
+            </div>
+        </div>
+    `).join('');
+    
+    // Re-attach event listeners to new buttons
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-id');
+            addToCart(productId);
+        });
+    });
+    
+    document.querySelectorAll('.buy-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-id');
+            buyNow(productId);
+        });
+    });
+}
+
 function addToCart(productId) {
-    const product = products[productId];
+    const product = productsObj[productId];
     if (!product) return;
 
     // Check if product already in cart
@@ -310,7 +550,7 @@ function addToCart(productId) {
 }
 
 function buyNow(productId) {
-    const product = products[productId];
+    const product = productsObj[productId];
     if (!product) return;
 
     // Add to cart first

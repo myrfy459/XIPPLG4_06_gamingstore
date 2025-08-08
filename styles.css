@@ -384,6 +384,111 @@ body {
     margin-right: 0.4rem;
 }
 
+/* Search and Filter Section */
+.search-filter-section {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.search-filter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    align-items: end;
+}
+
+.search-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.search-group label {
+    font-weight: 600;
+    color: var(--gray-800);
+    font-size: 0.9rem;
+}
+
+.search-group input,
+.search-group select {
+    padding: 0.75rem;
+    border: 2px solid var(--gray-200);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.search-group input:focus,
+.search-group select:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+}
+
+.search-group input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.search-group input[type="number"]::-webkit-outer-spin-button,
+.search-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.search-results {
+    margin-top: 2rem;
+}
+
+.results-count {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--gray-600);
+    font-size: 1.1rem;
+}
+
+.no-results {
+    text-align: center;
+    padding: 3rem;
+    background: var(--white);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.no-results i {
+    font-size: 3rem;
+    color: var(--gray-300);
+    margin-bottom: 1rem;
+}
+
+.no-results h3 {
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+}
+
+.no-results p {
+    color: var(--gray-500);
+}
+
+.price-warning {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    color: #92400e;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.price-warning.show {
+    display: block;
+}
+
 /* Features Section */
 .features {
     padding: 5rem 0;
@@ -761,6 +866,15 @@ body {
 
     .social-links {
         justify-content: center;
+    }
+
+    .search-filter-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .search-filter-section {
+        padding: 1.5rem;
     }
 }
 
