@@ -22,6 +22,10 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -91,38 +95,123 @@
             </div>
         </div>
     </section>
-    <!-- Features Section -->
-    <section id="products" class="features">
+    <!-- Products Section -->
+    <section id="products" class="products">
         <div class="container">
-            <h2 class="section-title">Featured Products</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-gamepad"></i>
+            <h2 class="section-title">Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card" data-id="1">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Headset Pro">
                     </div>
-                    <h3>Gaming Controllers</h3>
-                    <p>Premium controllers for all platforms with customizable buttons and ergonomic design.</p>
+                    <div class="product-info">
+                        <h3>Headset Pro X99</h3>
+                        <p class="product-description">Headset gaming premium dengan suara surround 7.1, mikrofon noise-cancelling, dan kenyamanan maksimal untuk gaming marathon.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 1,250,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-btn" data-id="1">Beli Sekarang</button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-id="1">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+
+                <div class="product-card" data-id="2">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Keyboard RGB">
                     </div>
-                    <h3>Gaming Headsets</h3>
-                    <p>Immersive audio experience with noise cancellation and crystal-clear communication.</p>
+                    <div class="product-info">
+                        <h3>Keyboard RGB Ultra</h3>
+                        <p class="product-description">Keyboard mekanikal dengan switch Cherry MX Blue, lampu RGB yang dapat dikustomisasi, dan desain ergonomis untuk gaming.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 2,500,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-btn" data-id="2">Beli Sekarang</button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-id="2">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-keyboard"></i>
+
+                <div class="product-card" data-id="3">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80" alt="Mouse Elite">
                     </div>
-                    <h3>Mechanical Keyboards</h3>
-                    <p>Responsive mechanical switches with RGB lighting for the ultimate gaming setup.</p>
+                    <div class="product-info">
+                        <h3>Mouse Elite 5000</h3>
+                        <p class="product-description">Mouse gaming dengan sensor 25,600 DPI, 8 tombol yang dapat diprogram, dan desain ergonomis untuk tangan kanan.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 850,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-btn" data-id="3">Beli Sekarang</button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-id="3">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-mouse"></i>
+
+                <div class="product-card" data-id="4">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80" alt="Gaming Controller">
                     </div>
-                    <h3>Gaming Mice</h3>
-                    <p>High-precision sensors with customizable DPI settings for competitive gaming.</p>
+                    <div class="product-info">
+                        <h3>Gaming Controller Pro</h3>
+                        <p class="product-description">Controller wireless dengan dual vibration, trigger buttons yang responsif, dan kompatibel dengan PC, PS4, dan PS5.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 1,800,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-btn" data-id="4">Beli Sekarang</button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-id="4">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="5">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80" alt="Gaming Monitor">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gaming Monitor 27"</h3>
+                        <p class="product-description">Monitor gaming 27" dengan refresh rate 165Hz, response time 1ms, dan resolusi 2560x1440 untuk pengalaman gaming yang smooth.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 4,500,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-btn" data-id="5">Beli Sekarang</button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-id="5">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-id="6">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=400&q=80" alt="Gaming Chair">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gaming Chair Premium</h3>
+                        <p class="product-description">Kursi gaming ergonomis dengan lumbar support, headrest yang dapat disesuaikan, dan material premium untuk kenyamanan maksimal.</p>
+                        <div class="product-price">
+                            <span class="price">Rp 3,200,000</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary buy-btn" data-id="6">Beli Sekarang</button>
+                            <button class="btn btn-secondary add-to-cart-btn" data-id="6">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
