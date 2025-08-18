@@ -832,186 +832,26 @@
 
         // Product data with extended properties
         const products = [
-            { 
-                id: 1, 
-                name: 'Headset Pro X99', 
-                brand: 'GamingTech', 
-                type: 'Headset', 
-                price: 1250000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'Headset gaming premium dengan suara surround 7.1, mikrofon noise-cancelling, dan kenyamanan maksimal untuk gaming marathon.'
-            },
-            { 
-                id: 2, 
-                name: 'Keyboard RGB Ultra', 
-                brand: 'MechanicalPro', 
-                type: 'Keyboard', 
-                price: 2500000, 
-                image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
-                description: 'Keyboard mekanikal dengan switch Cherry MX Blue, lampu RGB yang dapat dikustomisasi, dan desain ergonomis untuk gaming.'
-            },
-            { 
-                id: 3, 
-                name: 'Mouse Elite 5000', 
-                brand: 'GamingTech', 
-                type: 'Mouse', 
-                price: 850000, 
-                image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80',
-                description: 'Mouse gaming dengan sensor 25,600 DPI, 8 tombol yang dapat diprogram, dan desain ergonomis untuk tangan kanan.'
-            },
-            { 
-                id: 4, 
-                name: 'Gaming Controller Pro', 
-                brand: 'ConsoleMaster', 
-                type: 'Controller', 
-                price: 1800000, 
-                image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80',
-                description: 'Controller wireless dengan dual vibration, trigger buttons yang responsif, dan kompatibel dengan PC, PS4, dan PS5.'
-            },
-            { 
-                id: 5, 
-                name: 'Gaming Monitor 27"', 
-                brand: 'DisplayPro', 
-                type: 'Monitor', 
-                price: 4500000, 
-                image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80',
-                description: 'Monitor gaming 27" dengan refresh rate 165Hz, response time 1ms, dan resolusi 2560x1440 untuk pengalaman gaming yang smooth.'
-            },
-            { 
-                id: 6, 
-                name: 'Gaming Chair Premium', 
-                brand: 'ComfortMax', 
-                type: 'Chair', 
-                price: 3200000, 
-                image: 'https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=400&q=80',
-                description: 'Kursi gaming ergonomis dengan lumbar support, headrest yang dapat disesuaikan, dan material premium untuk kenyamanan maksimal.'
-            },
-            { 
-                id: 7, 
-                name: 'Gaming Mousepad XL', 
-                brand: 'GamingTech', 
-                type: 'Mousepad', 
-                price: 350000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'Mousepad gaming extra large dengan permukaan yang halus dan anti-slip untuk kontrol yang presisi.'
-            },
-            { 
-                id: 8, 
-                name: 'Gaming Microphone Pro', 
-                brand: 'AudioMaster', 
-                type: 'Microphone', 
-                price: 1200000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'Mikrofon gaming dengan noise-cancelling dan suara yang jernih untuk streaming dan komunikasi gaming.'
-            },
-            { 
-                id: 9, 
-                name: 'Gaming Laptop RTX 4080', 
-                brand: 'TechGaming', 
-                type: 'Laptop', 
-                price: 25000000, 
-                image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=400&q=80',
-                description: 'Laptop gaming premium dengan RTX 4080, Intel i9-13900H, 32GB RAM, dan layar 17" 240Hz untuk performa gaming maksimal.'
-            },
-            { 
-                id: 10, 
-                name: 'Gaming Desk Pro', 
-                brand: 'FurnitureMax', 
-                type: 'Desk', 
-                price: 2800000, 
-                image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80',
-                description: 'Meja gaming dengan cable management, LED strip RGB, dan ruang yang luas untuk setup gaming yang lengkap.'
-            },
-            { 
-                id: 11, 
-                name: 'Gaming Webcam 4K', 
-                brand: 'StreamTech', 
-                type: 'Webcam', 
-                price: 1800000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'Webcam 4K dengan autofocus, noise-cancelling microphone, dan low-light enhancement untuk streaming berkualitas tinggi.'
-            },
-            { 
-                id: 12, 
-                name: 'Gaming Headset Stand', 
-                brand: 'AccessoryPro', 
-                type: 'Accessory', 
-                price: 450000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'Stand headset dengan USB hub, audio passthrough, dan LED RGB untuk organisasi setup gaming yang rapi.'
-            },
-            { 
-                id: 13, 
-                name: 'Gaming Console PS5', 
-                brand: 'Sony', 
-                type: 'Console', 
-                price: 8500000, 
-                image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80',
-                description: 'PlayStation 5 dengan DualSense controller, SSD ultra-fast, dan grafis ray-tracing untuk pengalaman gaming next-gen.'
-            },
-            { 
-                id: 14, 
-                name: 'Gaming Console Xbox Series X', 
-                brand: 'Microsoft', 
-                type: 'Console', 
-                price: 7800000, 
-                image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80',
-                description: 'Xbox Series X dengan Game Pass, Quick Resume, dan performa 4K 120fps untuk gaming yang smooth.'
-            },
-            { 
-                id: 15, 
-                name: 'Gaming Router WiFi 6', 
-                brand: 'NetGaming', 
-                type: 'Router', 
-                price: 2200000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'Router gaming dengan WiFi 6, QoS gaming, dan latency optimization untuk koneksi online yang stabil.'
-            },
-            { 
-                id: 16, 
-                name: 'Gaming SSD 2TB NVMe', 
-                brand: 'StoragePro', 
-                type: 'Storage', 
-                price: 1800000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'SSD NVMe 2TB dengan read speed 7000MB/s untuk loading game yang super cepat dan performa sistem optimal.'
-            },
-            { 
-                id: 17, 
-                name: 'Gaming RAM 32GB DDR5', 
-                brand: 'MemoryMax', 
-                type: 'RAM', 
-                price: 1200000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'RAM DDR5 32GB dengan RGB lighting dan timing yang optimal untuk gaming dan multitasking yang smooth.'
-            },
-            { 
-                id: 18, 
-                name: 'Gaming CPU Cooler RGB', 
-                brand: 'CoolingPro', 
-                type: 'Cooling', 
-                price: 950000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'CPU cooler dengan RGB fan, thermal paste premium, dan performa pendinginan yang optimal untuk overclocking.'
-            },
-            { 
-                id: 19, 
-                name: 'Gaming Power Supply 850W', 
-                brand: 'PowerMax', 
-                type: 'Power Supply', 
-                price: 1500000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'Power supply 850W 80+ Gold dengan modular cables dan proteksi lengkap untuk sistem gaming yang stabil.'
-            },
-            { 
-                id: 20, 
-                name: 'Gaming Case RGB', 
-                brand: 'CaseMaster', 
-                type: 'Case', 
-                price: 2100000, 
-                image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-                description: 'PC case dengan RGB fans, tempered glass, dan airflow yang optimal untuk sistem gaming yang keren dan performa tinggi.'
-            }
+            { id: 1, name: 'ROG Delta S Wireless', brand: 'ROG', type: 'Headset', price: 2500000, image: 'https://dlcdnwebimgs.asus.com/gain/8e2e2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e2e/', description: 'Headset gaming wireless dengan Hi-Res audio dan dual-mode connectivity.' },
+            { id: 2, name: 'Logitech G915 TKL', brand: 'Logitech', type: 'Keyboard', price: 3200000, image: 'https://resource.logitechg.com/w_800,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g915-tkl/g915-tkl-gallery-1.png', description: 'Keyboard gaming wireless mechanical RGB ultra tipis dan responsif.' },
+            { id: 3, name: 'Razer DeathAdder V2', brand: 'Razer', type: 'Mouse', price: 900000, image: 'https://assets2.razerzone.com/images/pnx.assets/7e6e2e2e2e2e2e2e2e2e2e2e2e2e2e2e/razer-deathadder-v2-gallery-01.png', description: 'Mouse gaming legendaris dengan sensor 20K DPI Focus+ dan Speedflex cable.' },
+            { id: 4, name: 'Sony DualSense Wireless', brand: 'Sony', type: 'Controller', price: 1200000, image: 'https://www.sony.com/image/2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e?fmt=pjpeg&wid=330&bgcolor=FFFFFF&bgc=FFFFFF', description: 'Controller resmi PlayStation 5 dengan adaptive triggers dan haptic feedback.' },
+            { id: 5, name: 'Acer Predator XB273U', brand: 'Acer', type: 'Monitor', price: 7000000, image: 'https://static.acer.com/up/Resource/Acer/Monitors/Predator_XB3/Images/20210112/Predator_XB273U_Gallery_01.png', description: 'Monitor gaming 27" QHD 165Hz dengan NVIDIA G-SYNC.' },
+            { id: 6, name: 'Lenovo Legion Y740', brand: 'Lenovo', type: 'Laptop', price: 18000000, image: 'https://p1-ofp.static.pub/medias/lenovo-laptop-legion-y740-15-gallery-1.png', description: 'Laptop gaming 15" dengan RTX 2070 dan Intel Core i7.' },
+            { id: 7, name: 'SteelSeries QcK Prism XL', brand: 'SteelSeries', type: 'Mousepad', price: 900000, image: 'https://media.steelseriescdn.com/thumbs/filer_public/2e/2e/2e2e2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e2e/qck_prism_xl_1.png__1850x800_q100_crop-fit_optimize_subsampling-2.png', description: 'Mousepad RGB XL dengan dua zona pencahayaan dan permukaan micro-woven.' },
+            { id: 8, name: 'HyperX QuadCast', brand: 'HyperX', type: 'Microphone', price: 1800000, image: 'https://media.kingston.com/hyperx/product/hx-product-mic-quadcast-1-zm-lg.jpg', description: 'Microphone USB kondensor dengan RGB dan anti-vibration shock mount.' },
+            { id: 9, name: 'Corsair Vengeance RGB Pro 32GB', brand: 'Corsair', type: 'RAM', price: 2500000, image: 'https://www.corsair.com/medias/sys_master/images/images/hb6/hb2/9119648571422/vengeance-rgb-pro-black-01.png', description: 'RAM DDR4 32GB dengan pencahayaan RGB dinamis.' },
+            { id: 10, name: 'Logitech C922 Pro Stream', brand: 'Logitech', type: 'Webcam', price: 1200000, image: 'https://resource.logitech.com/w_800,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/c922/c922-gallery-1.png', description: 'Webcam streaming 1080p dengan auto light correction dan background removal.' },
+            { id: 11, name: 'MSI Optix MAG274QRF', brand: 'MSI', type: 'Monitor', price: 6500000, image: 'https://asset.msi.com/resize/image/global/product/product_1605163370e7e2e2e2e2e2e2e2e2e2e2e2e2e2e2e2e.png62405b38c58fe0f07b9cfb6a7a6a1a9a/600.png', description: 'Monitor gaming 27" Rapid IPS 165Hz WQHD.' },
+            { id: 12, name: 'Alienware AW510H', brand: 'Alienware', type: 'Headset', price: 2200000, image: 'https://i.dell.com/sites/csimages/Video_Imagery/all/alienware-aw510h-headset-black-gallery-1.png', description: 'Headset gaming surround 7.1 dengan desain premium.' },
+            { id: 13, name: 'HP Omen Sequencer', brand: 'HP Omen', type: 'Keyboard', price: 2100000, image: 'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06071113.png', description: 'Keyboard opto-mechanical dengan pencahayaan RGB dan response ultra cepat.' },
+            { id: 14, name: 'NZXT Kraken X63', brand: 'NZXT', type: 'Cooling', price: 2500000, image: 'https://nzxt.com/assets/cms/34299/1606823556-kraken-x63-1.png', description: 'Liquid cooler 280mm dengan RGB infinity mirror.' },
+            { id: 15, name: 'Samsung 970 EVO Plus 1TB', brand: 'Samsung', type: 'Storage', price: 2000000, image: 'https://images.samsung.com/is/image/samsung/p6pim/id/feature/1640/id-feature-970-evo-plus-1tb-ssd-mz-v7s1t0bw-1640-001.png', description: 'SSD NVMe 1TB dengan kecepatan baca hingga 3500MB/s.' },
+            { id: 16, name: 'ViewSonic XG2405', brand: 'ViewSonic', type: 'Monitor', price: 3500000, image: 'https://www.viewsonic.com/vsAssetFile/asset-files/images/products/monitors/XG2405/XG2405_front.png', description: 'Monitor gaming 24" IPS 144Hz dengan AMD FreeSync.' },
+            { id: 17, name: 'Dell Alienware Aurora R12', brand: 'Dell', type: 'PC', price: 25000000, image: 'https://i.dell.com/sites/csimages/Video_Imagery/all/alienware-aurora-r12-desktop-gallery-1.png', description: 'PC gaming desktop dengan Intel Core i9 dan RTX 3080.' },
+            { id: 18, name: 'Razer BlackShark V2', brand: 'Razer', type: 'Headset', price: 1700000, image: 'https://assets2.razerzone.com/images/pnx.assets/7e6e2e2e2e2e2e2e2e2e2e2e2e2e2e2e/razer-blackshark-v2-gallery-01.png', description: 'Headset esports dengan THX Spatial Audio dan microphone detacheable.' },
+            { id: 19, name: 'Corsair K95 RGB Platinum XT', brand: 'Corsair', type: 'Keyboard', price: 3500000, image: 'https://www.corsair.com/medias/sys_master/images/images/hb6/hb2/9119648571422/k95-rgb-platinum-xt-01.png', description: 'Keyboard mechanical Cherry MX RGB dengan macro keys.' },
+            { id: 20, name: 'Logitech G Pro X Superlight', brand: 'Logitech', type: 'Mouse', price: 2200000, image: 'https://resource.logitechg.com/w_800,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/pro-x-superlight/pro-x-superlight-gallery-1.png', description: 'Mouse wireless ultra ringan untuk esports dengan sensor HERO 25K.' }
         ];
 
         // Convert to object for cart functionality
@@ -1216,13 +1056,19 @@
             const product = productsObj[productId];
             if (!product) return;
 
-            // Add to cart first
-            addToCart(productId);
-            
-            // Show cart immediately
-            setTimeout(() => {
-                showCart();
-            }, 500);
+            // Buat data cart khusus untuk payment
+            const cartForPayment = {
+                items: [{
+                    id: productId,
+                    name: product.name,
+                    price: product.price,
+                    image: product.image,
+                    quantity: 1
+                }],
+                total: product.price
+            };
+            localStorage.setItem('cartForPayment', JSON.stringify(cartForPayment));
+            window.location.href = 'payment.html';
         }
 
         function updateCartCount() {
@@ -1380,13 +1226,20 @@
                 return;
             }
 
+            // Siapkan data keranjang untuk payment.html
             const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const message = `Halo! Saya ingin membeli:\n\n${cart.map(item => `${item.name} x${item.quantity} = Rp ${(item.price * item.quantity).toLocaleString()}`).join('\n')}\n\nTotal: Rp ${total.toLocaleString()}`;
-            
-            // Send to WhatsApp
-            const phoneNumber = "6285842363036"; // Ganti dengan nomor WA kamu
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
+            const cartForPayment = {
+                items: cart.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    image: item.image,
+                    quantity: item.quantity
+                })),
+                total: total
+            };
+            localStorage.setItem('cartForPayment', JSON.stringify(cartForPayment));
+            window.location.href = 'payment.html';
         }
 
         // Main initialization

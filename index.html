@@ -64,35 +64,9 @@
     <!-- New Product Section -->
     <section id="new-product" class="new-product">
         <div class="container">
-            <h2 class="section-title">Produk Baru!</h2>
-            <div class="new-products-grid">
-                <div class="new-product-card">
-                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" alt="Headset Pro">
-                    <h3>Headset Pro X99</h3>
-                    <p>Headset gaming dengan suara surround dan mikrofon noise-cancelling.</p>
-                    <div class="new-product-actions">
-                        <a href="#" class="btn btn-primary">Beli</a>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i> Keranjang</a>
-                    </div>
-                </div>
-                <div class="new-product-card">
-                    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Keyboard RGB">
-                    <h3>Keyboard RGB Ultra</h3>
-                    <p>Keyboard mekanikal dengan lampu RGB dan switch premium.</p>
-                    <div class="new-product-actions">
-                        <a href="#" class="btn btn-primary">Beli</a>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i> Keranjang</a>
-                    </div>
-                </div>
-                <div class="new-product-card">
-                    <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80" alt="Mouse Elite">
-                    <h3>Mouse Elite 5000</h3>
-                    <p>Mouse gaming dengan DPI tinggi dan desain ergonomis.</p>
-                    <div class="new-product-actions">
-                        <a href="#" class="btn btn-primary">Beli</a>
-                        <a href="#" class="btn btn-secondary"><i class="fas fa-shopping-cart"></i> Keranjang</a>
-                    </div>
-                </div>
+            <h2 class="section-title">New Products!</h2>
+            <div class="new-products-grid" id="newProductsGrid">
+                <!-- Produk terbaru akan di-generate oleh JS -->
             </div>
         </div>
     </section>
@@ -294,5 +268,65 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+// Produk terbaru (ambil 3 teratas dari daftar produk utama)
+const newProducts = [
+    {
+        id: 1,
+        name: 'ROG Delta S Wireless',
+        brand: 'ROG',
+        type: 'Headset',
+        price: 2500000,
+        image: 'https://dlcdnwebimgs.asus.com/gain/8e2e2e2e-2e2e-4e2e-8e2e-2e2e2e2e2e2e/',
+        description: 'Headset gaming wireless dengan Hi-Res audio dan dual-mode connectivity.'
+    },
+    {
+        id: 2,
+        name: 'Logitech G915 TKL',
+        brand: 'Logitech',
+        type: 'Keyboard',
+        price: 3200000,
+        image: 'https://resource.logitechg.com/w_800,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g915-tkl/g915-tkl-gallery-1.png',
+        description: 'Keyboard gaming wireless mechanical RGB ultra tipis dan responsif.'
+    },
+    {
+        id: 3,
+        name: 'Razer DeathAdder V2',
+        brand: 'Razer',
+        type: 'Mouse',
+        price: 900000,
+        image: 'https://assets2.razerzone.com/images/pnx.assets/7e6e2e2e2e2e2e2e2e2e2e2e2e2e2e2e/razer-deathadder-v2-gallery-01.png',
+        description: 'Mouse gaming legendaris dengan sensor 20K DPI Focus+ dan Speedflex cable.'
+    }
+];
+
+function renderNewProducts() {
+    const grid = document.getElementById('newProductsGrid');
+    if (!grid) return;
+    grid.innerHTML = newProducts.map(product => `
+        <div class="new-product-card">
+            <img src="${product.image}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+            <div class="new-product-actions">
+                <button class="btn btn-primary buy-btn" data-id="${product.id}">Beli</button>
+                <button class="btn btn-secondary add-to-cart-btn" data-id="${product.id}"><i class="fas fa-shopping-cart"></i> Keranjang</button>
+            </div>
+        </div>
+    `).join('');
+    // Event listener tombol
+    grid.querySelectorAll('.buy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            buyNow(this.getAttribute('data-id'));
+        });
+    });
+    grid.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            addToCart(this.getAttribute('data-id'));
+        });
+    });
+}
+document.addEventListener('DOMContentLoaded', renderNewProducts);
+</script>
 </body>
 </html> 
