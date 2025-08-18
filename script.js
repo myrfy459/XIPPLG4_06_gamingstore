@@ -41,32 +41,31 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Contact Form Handling
+// Contact Form Handling (guarded for pages without the form)
 const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.querySelector('.name').value;
+        const email = document.querySelector('.email').value;
+        const message = document.querySelector('.message').value;
 
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const name = document.querySelector('.name').value;
-    const email = document.querySelector('.email').value;
-    const message = document.querySelector('.message').value;
+        // Validasi sederhana
+        if (!name || !email || !message) {
+            showNotification('Please fill in all fields', 'error');
+            return;
+        }
 
-    // Validasi sederhana
-    if (!name || !email || !message) {
-        showNotification('Please fill in all fields', 'error');
-        return;
-    }
+        if (!isValidEmail(email)) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
 
-    if (!isValidEmail(email)) {
-        showNotification('Please enter a valid email address', 'error');
-        return;
-    }
-
-    // Kirim ke WhatsApp
-    sendwhatsapp(name, email, message);
-
-
-});
+        // Kirim ke WhatsApp
+        sendwhatsapp(name, email, message);
+    });
+}
 
 // Fungsi kirim ke WhatsApp
 function sendwhatsapp(name, email, message) {

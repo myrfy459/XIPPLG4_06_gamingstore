@@ -184,7 +184,7 @@ body {
     font-size: 1.5rem;
     color: var(--light-blue);
     margin-bottom: 1rem;
-    font-weight: 300;
+    font-weight: 800;
 }
 
 .hero-description {
@@ -612,6 +612,29 @@ body {
     color: var(--white);
     box-shadow: 0 10px 30px rgba(107, 70, 193, 0.3);
 }
+
+/* Blog Section (scoped to homepage) */
+.home-blog { padding: 5rem 0; background: var(--white); }
+.home-blog .section-title { margin-bottom: 1.5rem; }
+.home-blog-intro { color: var(--gray-600); text-align: center; margin-bottom: 2rem; }
+.blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.blog-card { background: var(--white); border-radius: 16px; box-shadow: 0 6px 22px rgba(0,0,0,0.08); border: 1px solid var(--gray-200); transition: transform .25s ease, box-shadow .25s ease; overflow: hidden; }
+.blog-card:hover { transform: translateY(-6px); box-shadow: 0 14px 28px rgba(107,70,193,0.18); }
+.blog-card-media { width: 100%; aspect-ratio: 16/9; background: var(--gray-100); overflow: hidden; }
+.blog-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.blog-card-content { padding: 1.2rem 1.25rem 1.25rem 1.25rem; }
+.blog-meta { display: flex; align-items: center; gap: .6rem; color: var(--gray-600); font-size: .85rem; margin-bottom: .5rem; }
+.badge { display: inline-block; padding: .25rem .6rem; font-size: .75rem; border-radius: 999px; background: rgba(107,70,193,0.12); color: var(--primary-purple); font-weight: 600; }
+.blog-card-title { font-size: 1.25rem; line-height: 1.35; margin-top: .35rem; }
+.blog-card-title a { color: var(--gray-900); text-decoration: none; transition: color .2s ease; }
+.blog-card-title a:hover { color: var(--primary-purple); }
+.blog-card-excerpt { color: var(--gray-600); margin: .65rem 0 1.1rem 0; }
+.blog-card-actions .btn { padding: .7rem 1.2rem; }
+.blog-footer-actions { text-align: center; margin-top: 2rem; }
+.btn-see-more { background: linear-gradient(45deg, var(--primary-blue), var(--secondary-blue)); color: var(--white); border: none; border-radius: 999px; padding: 0.9rem 1.6rem; font-weight: 700; box-shadow: 0 8px 20px rgba(59,130,246,0.25); transition: transform .2s ease, box-shadow .2s ease; display: inline-block; text-decoration: none; }
+.btn-see-more:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(59,130,246,0.35); }
+@media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+
 
 /* Contact Section */
 .contact {
