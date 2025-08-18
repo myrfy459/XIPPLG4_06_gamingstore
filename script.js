@@ -320,132 +320,6 @@ const products = [
         price: 3200000, 
         image: 'https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=400&q=80',
         description: 'Kursi gaming ergonomis dengan lumbar support, headrest yang dapat disesuaikan, dan material premium untuk kenyamanan maksimal.'
-    },
-    { 
-        id: 7, 
-        name: 'Gaming Mousepad XL', 
-        brand: 'GamingTech', 
-        type: 'Mousepad', 
-        price: 350000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'Mousepad gaming extra large dengan permukaan yang halus dan anti-slip untuk kontrol yang presisi.'
-    },
-    { 
-        id: 8, 
-        name: 'Gaming Microphone Pro', 
-        brand: 'AudioMaster', 
-        type: 'Microphone', 
-        price: 1200000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'Mikrofon gaming dengan noise-cancelling dan suara yang jernih untuk streaming dan komunikasi gaming.'
-    },
-    { 
-        id: 9, 
-        name: 'Gaming Laptop RTX 4080', 
-        brand: 'TechGaming', 
-        type: 'Laptop', 
-        price: 25000000, 
-        image: 'https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=400&q=80',
-        description: 'Laptop gaming premium dengan RTX 4080, Intel i9-13900H, 32GB RAM, dan layar 17" 240Hz untuk performa gaming maksimal.'
-    },
-    { 
-        id: 10, 
-        name: 'Gaming Desk Pro', 
-        brand: 'FurnitureMax', 
-        type: 'Desk', 
-        price: 2800000, 
-        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80',
-        description: 'Meja gaming dengan cable management, LED strip RGB, dan ruang yang luas untuk setup gaming yang lengkap.'
-    },
-    { 
-        id: 11, 
-        name: 'Gaming Webcam 4K', 
-        brand: 'StreamTech', 
-        type: 'Webcam', 
-        price: 1800000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'Webcam 4K dengan autofocus, noise-cancelling microphone, dan low-light enhancement untuk streaming berkualitas tinggi.'
-    },
-    { 
-        id: 12, 
-        name: 'Gaming Headset Stand', 
-        brand: 'AccessoryPro', 
-        type: 'Accessory', 
-        price: 450000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'Stand headset dengan USB hub, audio passthrough, dan LED RGB untuk organisasi setup gaming yang rapi.'
-    },
-    { 
-        id: 13, 
-        name: 'Gaming Console PS5', 
-        brand: 'Sony', 
-        type: 'Console', 
-        price: 8500000, 
-        image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80',
-        description: 'PlayStation 5 dengan DualSense controller, SSD ultra-fast, dan grafis ray-tracing untuk pengalaman gaming next-gen.'
-    },
-    { 
-        id: 14, 
-        name: 'Gaming Console Xbox Series X', 
-        brand: 'Microsoft', 
-        type: 'Console', 
-        price: 7800000, 
-        image: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=400&q=80',
-        description: 'Xbox Series X dengan Game Pass, Quick Resume, dan performa 4K 120fps untuk gaming yang smooth.'
-    },
-    { 
-        id: 15, 
-        name: 'Gaming Router WiFi 6', 
-        brand: 'NetGaming', 
-        type: 'Router', 
-        price: 2200000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'Router gaming dengan WiFi 6, QoS gaming, dan latency optimization untuk koneksi online yang stabil.'
-    },
-    { 
-        id: 16, 
-        name: 'Gaming SSD 2TB NVMe', 
-        brand: 'StoragePro', 
-        type: 'Storage', 
-        price: 1800000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'SSD NVMe 2TB dengan read speed 7000MB/s untuk loading game yang super cepat dan performa sistem optimal.'
-    },
-    { 
-        id: 17, 
-        name: 'Gaming RAM 32GB DDR5', 
-        brand: 'MemoryMax', 
-        type: 'RAM', 
-        price: 1200000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'RAM DDR5 32GB dengan RGB lighting dan timing yang optimal untuk gaming dan multitasking yang smooth.'
-    },
-    { 
-        id: 18, 
-        name: 'Gaming CPU Cooler RGB', 
-        brand: 'CoolingPro', 
-        type: 'Cooling', 
-        price: 950000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'CPU cooler dengan RGB fan, thermal paste premium, dan performa pendinginan yang optimal untuk overclocking.'
-    },
-    { 
-        id: 19, 
-        name: 'Gaming Power Supply 850W', 
-        brand: 'PowerMax', 
-        type: 'Power Supply', 
-        price: 1500000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'Power supply 850W 80+ Gold dengan modular cables dan proteksi lengkap untuk sistem gaming yang stabil.'
-    },
-    { 
-        id: 20, 
-        name: 'Gaming Case RGB', 
-        brand: 'CaseMaster', 
-        type: 'Case', 
-        price: 2100000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
-        description: 'PC case dengan RGB fans, tempered glass, dan airflow yang optimal untuk sistem gaming yang keren dan performa tinggi.'
     }
 ];
 
@@ -467,12 +341,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load cart from localStorage
     loadCart();
     
-    // Initialize search and filter if on products page
-    if (document.getElementById('searchName')) {
-        initializeSearchAndFilter();
+    // Render products di home meskipun filter sudah dihapus
+    if (document.getElementById('productsGrid')) {
         renderProducts(products);
     }
-    
+
     // Add to cart buttons
     document.querySelectorAll('.add-to-cart-btn').forEach(button => {
         button.addEventListener('click', function() {
