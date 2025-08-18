@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Checkout - GameZone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS untuk payment page -->
+    <style>
+        /* Reset dan base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        /* Container utama untuk form */
+        .payment-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Header payment */
+        .payment-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .payment-header h1 {
+            color: #333;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .payment-header p {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        /* Info produk yang dipilih */
+        .product-info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            border: 2px solid #e1e5e9;
+        }
+        
+        .product-info h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .product-info .total-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4CAF50;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #e1e5e9;
+        }
+        
+        .product-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e1e5e9;
+        }
+        
+        .product-item:last-child {
+            border-bottom: none;
+        }
+        
+        .product-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .product-item-info {
+            flex: 1;
+        }
+        
+        .product-item-name {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .product-item-price {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .product-item-quantity {
+            background: #4CAF50;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        /* Form styling */
+        .payment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .form-group input {
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+        
+        /* Input readonly untuk jumlah pembayaran */
+        .form-group input[readonly] {
+            background: #e9ecef;
+            color: #495057;
+            cursor: not-allowed;
+        }
+        
+        /* Row untuk expiry dan CVV */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        /* Tombol bayar */
+        .pay-button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .pay-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(76, 175, 80, 0.3);
+        }
+        
+        .pay-button:active {
+            transform: translateY(0);
+        }
+        
+        /* Icon lock di tombol */
+        .pay-button i {
+            margin-right: 10px;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .payment-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .payment-header h1 {
+                font-size: 24px;
+            }
+        }
+        
+        /* Loading state untuk tombol */
+        .pay-button.loading {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .pay-button.loading:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Tombol kembali ke home */
+        .back-button {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .back-button:hover {
+            background: #5a6268;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Container utama untuk form pembayaran -->
+    <div class="payment-container">
+        <!-- Header payment -->
+        <div class="payment-header">
+            <h1><i class="fas fa-credit-card"></i> Payment Checkout</h1>
+            <p>Lengkapi informasi pembayaran Anda</p>
+        </div>
+        
+        <!-- Info produk yang dipilih -->
+        <div class="product-info" id="productInfo">
+            <h3>Detail Pembelian</h3>
+            <div id="productList"></div>
+            <div class="total-price">Total: Rp <span id="productPrice">0</span></div>
+        </div>
+        
+        <!-- Form pembayaran -->
+        <form class="payment-form" id="paymentForm">
+            <!-- Nama Lengkap -->
+            <div class="form-group">
+                <label for="fullName">Nama Lengkap</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Masukkan nama lengkap" required>
+            </div>
+            
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+            </div>
+            
+            <!-- Nomor Kartu Kredit -->
+            <div class="form-group">
+                <label for="cardNumber">Nomor Kartu Kredit</label>
+                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+            </div>
+            
+            <!-- Row untuk Expiry dan CVV -->
+            <div class="form-row">
+                <!-- Expiry Date -->
+                <div class="form-group">
+                    <label for="expiry">Expiry (MM/YY)</label>
+                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5" required>
+                </div>
+                
+                <!-- CVV -->
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required>
+                </div>
+            </div>
+            
+            <!-- Jumlah Pembayaran (readonly) -->
+            <div class="form-group">
+                <label for="amount">Jumlah Pembayaran</label>
+                <input type="text" id="amount" name="amount" readonly>
+            </div>
+            
+            <!-- Tombol Bayar -->
+            <button type="submit" class="pay-button" id="payButton">
+                <i class="fas fa-lock"></i>
+                Bayar Sekarang
+            </button>
+        </form>
+        
+        <!-- Tombol kembali ke home -->
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Kembali ke Home
+        </a>
+    </div>
+
+    <!-- JavaScript untuk payment -->
+    <script>
+        // Fungsi untuk memformat angka ke format rupiah
+        function formatRupiah(angka) {
+            return new Intl.NumberFormat('id-ID').format(angka);
+        }
+        
+        // Fungsi untuk memuat data cart dari localStorage
+        function loadCartData() {
+            const cartData = localStorage.getItem('cartForPayment');
+            
+            if (cartData) {
+                try {
+                    const cart = JSON.parse(cartData);
+                    
+                    // Tampilkan daftar produk
+                    const productList = document.getElementById('productList');
+                    productList.innerHTML = cart.items.map(item => `
+                        <div class="product-item">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="product-item-info">
+                                <div class="product-item-name">${item.name}</div>
+                                <div class="product-item-price">Rp ${formatRupiah(item.price)}</div>
+                            </div>
+                            <div class="product-item-quantity">x${item.quantity}</div>
+                        </div>
+                    `).join('');
+                    
+                    // Tampilkan total harga
+                    document.getElementById('productPrice').textContent = formatRupiah(cart.total);
+                    
+                    // Isi field jumlah pembayaran
+                    document.getElementById('amount').value = `Rp ${formatRupiah(cart.total)}`;
+                    
+                } catch (error) {
+                    console.error('Error parsing cart data:', error);
+                    alert('Terjadi kesalahan saat memuat data produk. Silakan coba lagi.');
+                    window.location.href = 'index.html';
+                }
+            } else {
+                // Jika tidak ada data cart, redirect ke home
+                alert('Tidak ada produk yang dipilih. Silakan pilih produk terlebih dahulu.');
+                window.location.href = 'index.html';
+            }
+        }
+        
+        // Fungsi untuk format input kartu kredit
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+            let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+            input.value = formattedValue;
+        }
+        
+        // Fungsi untuk format expiry date
+        function formatExpiry(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2, 4);
+            }
+            input.value = value;
+        }
+        
+        // Fungsi untuk format CVV (hanya angka)
+        function formatCVV(input) {
+            input.value = input.value.replace(/\D/g, '');
+        }
+        
+        // Event listeners untuk input formatting
+        document.getElementById('cardNumber').addEventListener('input', function() {
+            formatCardNumber(this);
+        });
+        
+        document.getElementById('expiry').addEventListener('input', function() {
+            formatExpiry(this);
+        });
+        
+        document.getElementById('cvv').addEventListener('input', function() {
+            formatCVV(this);
+        });
+        
+        // Handle form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil semua data form
+            const formData = new FormData(this);
+            const cartData = localStorage.getItem('cartForPayment');
+            const cart = cartData ? JSON.parse(cartData) : null;
+            
+            const paymentData = {
+                cart: cart,
+                fullName: formData.get('fullName'),
+                email: formData.get('email'),
+                cardNumber: formData.get('cardNumber'),
+                expiry: formData.get('expiry'),
+                cvv: formData.get('cvv'),
+                amount: formData.get('amount')
+            };
+            
+            // Validasi sederhana
+            if (!paymentData.fullName || !paymentData.email || !paymentData.cardNumber || 
+                !paymentData.expiry || !paymentData.cvv) {
+                alert('Mohon lengkapi semua field yang diperlukan');
+                return;
+            }
+            
+            // Simpan data payment ke localStorage untuk ditampilkan di home
+            localStorage.setItem('paymentSuccess', 'true');
+            localStorage.setItem('paymentData', JSON.stringify(paymentData));
+            
+            // Hapus data cart yang dipilih
+            localStorage.removeItem('cartForPayment');
+            
+            // Tampilkan loading state
+            const payButton = document.getElementById('payButton');
+            payButton.classList.add('loading');
+            payButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+            
+            // Simulasi delay processing
+            setTimeout(() => {
+                // Redirect ke home.html
+                window.location.href = 'index.html';
+            }, 2000);
+        });
+        
+        // Load data cart saat halaman load
+        window.addEventListener('load', function() {
+            loadCartData();
+            // Auto-focus ke field pertama
+            document.getElementById('fullName').focus();
+        });
+    </script>
+</body>
+</html>
