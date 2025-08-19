@@ -272,7 +272,7 @@ const products = [
         brand: 'GamingTech', 
         type: 'Headset', 
         price: 1250000, 
-        image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80',
+        image: 'x99.png',
         description: 'Headset gaming premium dengan suara surround 7.1, mikrofon noise-cancelling, dan kenyamanan maksimal untuk gaming marathon.'
     },
     { 
@@ -281,7 +281,7 @@ const products = [
         brand: 'MechanicalPro', 
         type: 'Keyboard', 
         price: 2500000, 
-        image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80',
+        image: 'rgb.png',
         description: 'Keyboard mekanikal dengan switch Cherry MX Blue, lampu RGB yang dapat dikustomisasi, dan desain ergonomis untuk gaming.'
     },
     { 
@@ -290,7 +290,7 @@ const products = [
         brand: 'GamingTech', 
         type: 'Mouse', 
         price: 850000, 
-        image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&w=400&q=80',
+        image: '5000.png',
         description: 'Mouse gaming dengan sensor 25,600 DPI, 8 tombol yang dapat diprogram, dan desain ergonomis untuk tangan kanan.'
     },
     { 
@@ -299,7 +299,7 @@ const products = [
         brand: 'ConsoleMaster', 
         type: 'Controller', 
         price: 1800000, 
-        image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=400&q=80',
+        image: 'controller.png',
         description: 'Controller wireless dengan dual vibration, trigger buttons yang responsif, dan kompatibel dengan PC, PS4, dan PS5.'
     },
     { 
@@ -308,7 +308,7 @@ const products = [
         brand: 'DisplayPro', 
         type: 'Monitor', 
         price: 4500000, 
-        image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=400&q=80',
+        image: 'monitor.png',
         description: 'Monitor gaming 27" dengan refresh rate 165Hz, response time 1ms, dan resolusi 2560x1440 untuk pengalaman gaming yang smooth.'
     },
     { 
@@ -317,7 +317,7 @@ const products = [
         brand: 'ComfortMax', 
         type: 'Chair', 
         price: 3200000, 
-        image: 'https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?auto=format&fit=crop&w=400&q=80',
+        image: 'gaming.png',
         description: 'Kursi gaming ergonomis dengan lumbar support, headrest yang dapat disesuaikan, dan material premium untuk kenyamanan maksimal.'
     }
 ];
